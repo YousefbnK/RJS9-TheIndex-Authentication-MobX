@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import BookForm from "./forms/BookForm";
 import Modal from "react-responsive-modal";
+import authStore from "./stores/AuthStore";
 
 class AddBookModal extends Component {
   state = {
