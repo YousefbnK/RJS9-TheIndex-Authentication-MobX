@@ -27,15 +27,17 @@ class AuthStore {
       history.push("/");
     } catch (error) {
       console.error(error.response.data);
+      console.log(error.response);
     }
   };
 
-  signup = async userData => {
+  signup = async (userData, history) => {
     try {
       const res = await instance.post("/signup/", userData);
       const data = res.data;
       console.log("Signed Up !", data);
-      this.login(userData);
+      this.setUser(data.token);
+      history.push("/");
     } catch (error) {
       console.error(error.response.data);
     }
